@@ -29,17 +29,20 @@ public class DictionaryFileReader {
             ArrayList<String> definitions;
 
             while (true) {
+                definitions = new ArrayList<>();
                 try {
                     termName = br.readLine();
-                    if(termName==null) { break; }
-                    definition = br.readLine();
-                    curTerm = new Term(termName,definition);
+                    if(termName.equals("*****")) { break; }
                     
-                    //READ OTHER DEFINITIONS
-                    //BELUM BERES
-                    //FORMATNYA GIMANA?
-                    //AAAA BBBB CCCC
+                    while (true) {
+                        definition = br.readLine();
+                        if(definition.equals("*")) { break; }
+                        definition = br.readLine();
+                        
+                        definitions.add(definition);
+                    }
                     
+                    curTerm = new Term(termName,definitions);
                     list.add(curTerm);
                 } catch (IOException ex) {
                     ex.printStackTrace();
@@ -83,6 +86,24 @@ public class DictionaryFileReader {
     }
     
 }
+
+/* Format Term
+
+TERM1
+-
+def1
+-
+def2
+*
+TERM2
+-
+def1
+*
+*****
+
+*/
+
+
 
 /*
 Format admin:

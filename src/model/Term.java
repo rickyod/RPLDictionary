@@ -16,10 +16,9 @@ public class Term {
     private String termName;
     private List<String> definitions;
 
-    public Term(String istilah, String penjelasan) {
-        this.termName = istilah;
-        this.definitions = new ArrayList<>();
-        this.definitions.add(penjelasan);
+    public Term(String termName, List definitions) {
+        this.termName = termName;
+        this.definitions = definitions;
     }
     
     public String getIstilah() {
@@ -38,4 +37,7 @@ public class Term {
         this.definitions = definitions;
     }
     
+    public void addDefinitions(String newDefinition) {
+        this.definitions.add(newDefinition);
+    }
 }

@@ -1,6 +1,8 @@
 
 import model.AdminAccount;
 import model.AdminAccountList;
+import model.DictionaryFileReader;
+import model.DictionaryFileWriter;
 
 /*
  * To change this template, choose Tools | Templates
@@ -32,6 +34,10 @@ public class TestMain {
         if(x!=null) {
             System.out.println(x.getID() + " " + x.getPassword());
         }
+        
+        DictionaryFileReader dfr = new DictionaryFileReader();
+        DictionaryFileWriter dfw = new DictionaryFileWriter();
+        dfw.writeTermsToFile(dfr.loadTerm("terms.txt"),"termsCobaTulis.txt");
         
     }
 }

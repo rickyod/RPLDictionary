@@ -1,0 +1,29 @@
+Software Engineering
+-
+the process of solving customer’s problems by the systematic development and evolution of large, high-quality software systems within cost, time and other constraints [Leithbridge&Laganiere]
+-
+the engineering discipline whose focus is the cost-effective development of high-quality software systems[Sommerville]
+-
+IEEE: (1) the application of a systematic, disciplined, quantifiable approach to the development, operation, maintenance of software; that is, the application of engineering to software. (2) The study of approaches as in (1)
+*
+Software
+-
+Instructions (computer programs) that when executed provide desired features, function, and performance; data structures that enable the programs to adequately manipulate information, and descriptive information in both hard copy and virtual forms that describes the operation and use of the programs
+*
+Custom software
+-
+Types of software which is developed to meet specific needs of a particular customer
+*
+Generic software
+-
+Types of software which is designed to be sold on the open market
+*
+Embedded software
+-
+Types of software that runs specific hardware devices sold on the market
+*
+Legacy software systems
+-
+An old software systems that have been continually modified to meet changes in business requirements and computing platforms and are indispensable to the business. The maintenance and evolution of these systems are causing headaches to business organizations
+*
+*****
