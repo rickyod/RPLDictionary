@@ -21,7 +21,7 @@ public class Dictionary {
         this.termsMap=termsMap;
     }
     
-    public Term Search(String term)
+    public Term search(String term)
     {
         return termsMap.get(term);
     }
@@ -30,13 +30,18 @@ public class Dictionary {
         Term temp=new Term(term, definition);
         termsMap.put(term, temp);
     }
-    public void remove(Term t)
+    public void remove(String t)
     {
         termsMap.remove(t);
     }
-    public void edit(Term t, Term newT)
+    public boolean edit(String termName, String newTermName , ArrayList<String> newDefinition)
     {
-        termsMap.remove(t);
-        termsMap.put(newT.getIstilah(), newT);
+        Term oldTerm = search(termName);
+        if(oldTerm==null){
+            return false;
+        }
+        termsMap.remove(termName);
+        termsMap.put(termName, new Term(newTermName,newDefinition));
+        return true;
     }
 }
