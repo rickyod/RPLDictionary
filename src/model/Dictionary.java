@@ -7,47 +7,36 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.HashMap;
 
 /**
  *
  * @author Adam Hafidz F
  */
 public class Dictionary {
-    private ArrayList<Term> terms;
+    private HashMap<String , Term> termsMap;
     
-    public Dictionary(ArrayList<Term> terms)
+    public Dictionary(HashMap<String , Term> termsMap)
     {
-        this.terms=terms;
+        this.termsMap=termsMap;
     }
+    
     public Term Search(String term)
     {
-        Term res=null;
-        Iterator it=terms.iterator();
-        Term temp;
-        while(it.hasNext())
-        {
-            temp=(Term) it.next();
-            if(temp.getIstilah().equalsIgnoreCase(term))
-            {
-                res=temp;
-                break;
-            } 
-        }
-        return res;
+        return termsMap.get(term);
     }
     public void add(String term,ArrayList<String> definition)
     {
         Term temp=new Term(term, definition);
-        terms.add(temp);
+        termsMap.put(term, temp);
     }
     public void remove(Term t)
     {
-        terms.remove(t);
+        termsMap.remove(t);
     }
     public void edit(Term t, Term newT)
     {
-        terms.remove(t);
-        terms.add(newT);
+        termsMap.remove(t);
+        termsMap.put(newT.getIstilah(), newT);
     }
 }
