@@ -1,23 +1,30 @@
 package View;
 
+import java.awt.event.KeyEvent;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Axel
  */
 public class ShowResultPanel extends javax.swing.JPanel {
+
     DictFrame d;
+
     /**
      * Creates new form ShowResultPanel
      */
     public ShowResultPanel(DictFrame d) {
         initComponents();
         this.d = d;
+        logoutButton.setVisible(false);
+        addButton.setVisible(false);
+        editButton.setVisible(false);
+        removeButton.setVisible(false);
     }
 
     /**
@@ -38,7 +45,7 @@ public class ShowResultPanel extends javax.swing.JPanel {
         searchButton = new javax.swing.JButton();
         addButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        logoutButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         DefinitionTA = new javax.swing.JTextArea();
 
@@ -49,12 +56,16 @@ public class ShowResultPanel extends javax.swing.JPanel {
             }
         });
 
+        setLayout(null);
+
         removeButton.setText("Remove");
         removeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 removeButtonActionPerformed(evt);
             }
         });
+        add(removeButton);
+        removeButton.setBounds(300, 230, 90, 23);
 
         editButton.setText("Edit");
         editButton.addActionListener(new java.awt.event.ActionListener() {
@@ -62,10 +73,22 @@ public class ShowResultPanel extends javax.swing.JPanel {
                 editButtonActionPerformed(evt);
             }
         });
+        add(editButton);
+        editButton.setBounds(240, 230, 51, 23);
+
+        searchTF1.setEditable(false);
+        add(searchTF1);
+        searchTF1.setBounds(28, 60, 151, 30);
 
         jLabel1.setText("Word");
+        add(jLabel1);
+        jLabel1.setBounds(28, 40, 90, 14);
+        add(searchTF);
+        searchTF.setBounds(136, 12, 151, 30);
 
         searchButton.setText("Search");
+        add(searchButton);
+        searchButton.setBounds(293, 11, 90, 23);
 
         addButton.setText("Add");
         addButton.addActionListener(new java.awt.event.ActionListener() {
@@ -73,75 +96,29 @@ public class ShowResultPanel extends javax.swing.JPanel {
                 addButtonActionPerformed(evt);
             }
         });
+        add(addButton);
+        addButton.setBounds(180, 230, 51, 23);
 
         jLabel2.setText("Definition");
+        add(jLabel2);
+        jLabel2.setBounds(30, 100, 120, 14);
 
-        jButton2.setText("Logout");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        logoutButton.setText("Logout");
+        logoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                logoutButtonActionPerformed(evt);
             }
         });
+        add(logoutButton);
+        logoutButton.setBounds(28, 11, 65, 23);
 
+        DefinitionTA.setEditable(false);
         DefinitionTA.setColumns(20);
         DefinitionTA.setRows(5);
         jScrollPane1.setViewportView(DefinitionTA);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(addButton)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(editButton)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(removeButton))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(28, 28, 28)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jButton2)
-                                    .addGap(43, 43, 43)
-                                    .addComponent(searchTF, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(searchButton))
-                                .addComponent(jLabel1)
-                                .addComponent(jLabel2)
-                                .addComponent(jScrollPane1))
-                            .addGap(9, 9, 9)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(searchTF1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(188, 188, 188)))
-                .addContainerGap(18, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(searchTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(searchButton)
-                    .addComponent(jButton2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(searchTF1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addButton)
-                    .addComponent(editButton)
-                    .addComponent(removeButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        add(jScrollPane1);
+        jScrollPane1.setBounds(30, 120, 360, 96);
     }// </editor-fold>//GEN-END:initComponents
 
     private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
@@ -165,21 +142,35 @@ public class ShowResultPanel extends javax.swing.JPanel {
         d.enter(0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        d.enter(0);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
+        if (d.login.isLogin) {
+            logoutButton.setVisible(true);
+            addButton.setVisible(true);
+            editButton.setVisible(true);
+            removeButton.setVisible(true);
+            d.enter(0);
+        }
 
+    }//GEN-LAST:event_logoutButtonActionPerformed
+
+    public void keyReleased(KeyEvent e) {
+        int keyCode = e.getKeyCode();
+        switch (keyCode) {
+            case KeyEvent.VK_SHIFT + KeyEvent.VK_CONTROL + KeyEvent.VK_L:
+                d.enter(0);
+                break;
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea DefinitionTA;
     private javax.swing.JButton addButton;
     private javax.swing.JButton editButton;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton logoutButton;
     private javax.swing.JButton removeButton;
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField searchTF;

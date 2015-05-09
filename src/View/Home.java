@@ -1,25 +1,45 @@
 package View;
 
+import java.awt.event.KeyEvent;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Axel
  */
 public class Home extends javax.swing.JPanel {
+
     DictFrame d;
+
     /**
      * Creates new form Home
      */
     public Home(DictFrame d) {
         initComponents();
         this.d = d;
+        logoutButton.setVisible(false);
+        if (d.login.isLogin) {
+            logoutButton.setVisible(true);
+        }
     }
 
+    public void keyReleased(KeyEvent e) {
+        int keyCode = e.getKeyCode();
+        if ((keyCode == KeyEvent.VK_SHIFT) && (keyCode == KeyEvent.VK_CONTROL) && (keyCode == KeyEvent.VK_L)) {
+            d.enter(0);
+        }
+    }
+
+    public void keyPressed(KeyEvent e) {
+        int keyCode = e.getKeyCode();
+        if ((keyCode == KeyEvent.VK_SHIFT) && (keyCode == KeyEvent.VK_CONTROL) && (keyCode == KeyEvent.VK_L)) {
+            d.enter(0);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,7 +52,7 @@ public class Home extends javax.swing.JPanel {
         searchTF = new javax.swing.JTextField();
         searchButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        logoutButton = new javax.swing.JButton();
 
         searchButton.setText("Search");
         searchButton.addActionListener(new java.awt.event.ActionListener() {
@@ -43,10 +63,10 @@ public class Home extends javax.swing.JPanel {
 
         jLabel1.setText("Kamus Istilah RPL");
 
-        jButton1.setText("Logout");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        logoutButton.setText("Logout");
+        logoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                logoutButtonActionPerformed(evt);
             }
         });
 
@@ -67,14 +87,14 @@ public class Home extends javax.swing.JPanel {
                         .addComponent(jLabel1)
                         .addGap(150, 150, 150))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(logoutButton)
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jButton1)
+                .addComponent(logoutButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addGap(76, 76, 76)
@@ -90,15 +110,15 @@ public class Home extends javax.swing.JPanel {
         d.enter(2);
     }//GEN-LAST:event_searchButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
         // TODO add your handling code here:
         d.enter(0);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_logoutButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton logoutButton;
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField searchTF;
     // End of variables declaration//GEN-END:variables

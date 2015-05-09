@@ -1,5 +1,7 @@
 package View;
 
+import Controller.DictionaryController;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -17,12 +19,14 @@ public class DictFrame extends javax.swing.JFrame {
     public addPanel add;
     public EditPanel edit;
     public RemovePanel remove;
+    public DictionaryController controller;
     
     /**
      * Creates new form DictFrame
      */
     public DictFrame() {
         initComponents();
+        controller=new DictionaryController();
         login = new LoginPanel(this);
         home = new Home(this);
         show = new ShowResultPanel(this);
@@ -31,7 +35,7 @@ public class DictFrame extends javax.swing.JFrame {
         remove = new RemovePanel(this);
         jPanel1.removeAll();
         jPanel1.revalidate();
-        jPanel1.add(login);
+        jPanel1.add(home);
         jPanel1.repaint();
         jPanel1.revalidate();
     }

@@ -20,7 +20,7 @@ public class TestMain {
         AdminAccount x = list.search("Riky", "Setiawan");
         System.out.println(x.getID() + " " + x.getPassword());
         
-        x = list.search("Riky", "setiawan");
+        x = list.search("Day", "Cantik");
         if(x!=null) {
             System.out.println(x.getID() + " " + x.getPassword());
         }
