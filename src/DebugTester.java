@@ -13,7 +13,7 @@ import model.DictionaryFileWriter;
  *
  * @author Devi
  */
-public class TestMain {
+public class DebugTester {
     public static void main(String[] args) {
         AdminAccountList list = new AdminAccountList();
         
