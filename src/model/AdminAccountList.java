@@ -4,6 +4,7 @@
  */
 package model;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,9 +26,10 @@ public class AdminAccountList {
         }
     }
     
-    public AdminAccount search(String ID, String password) {
+    public AdminAccount search(String ID, char[] password) {
         String actualPassword = adminAccounts.get(ID);
-        if(actualPassword!=null && password.equals(actualPassword)) {
+        char[] actPassChar = actualPassword.toCharArray();
+        if(actualPassword!=null && Arrays.equals(actPassChar, password)) {
             return new AdminAccount(ID, actualPassword);
         } else {
             return null;

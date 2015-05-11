@@ -20,11 +20,13 @@ public class ShowResultPanel extends javax.swing.JPanel {
      */
     public ShowResultPanel(DictFrame d) {
         initComponents();
+        
         this.d = d;
-        logoutButton.setVisible(false);
+        logoutButton.setVisible(false);\
         addButton.setVisible(false);
         editButton.setVisible(false);
         removeButton.setVisible(false);
+        setFocusable(true);
     }
 
     /**
@@ -56,6 +58,11 @@ public class ShowResultPanel extends javax.swing.JPanel {
             }
         });
 
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
         setLayout(null);
 
         removeButton.setText("Remove");
@@ -143,24 +150,15 @@ public class ShowResultPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
-        if (d.login.isLogin) {
-            logoutButton.setVisible(true);
-            addButton.setVisible(true);
-            editButton.setVisible(true);
-            removeButton.setVisible(true);
-            d.enter(0);
-        }
-
+        d.enter(0);
     }//GEN-LAST:event_logoutButtonActionPerformed
 
-    public void keyReleased(KeyEvent e) {
-        int keyCode = e.getKeyCode();
-        switch (keyCode) {
-            case KeyEvent.VK_SHIFT + KeyEvent.VK_CONTROL + KeyEvent.VK_L:
-                d.enter(0);
-                break;
-        }
-    }
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+        if (evt.isControlDown() && evt.isShiftDown() && evt.getKeyCode() == KeyEvent.VK_L) {
+            d.enter(0);
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_formKeyPressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea DefinitionTA;
@@ -176,4 +174,13 @@ public class ShowResultPanel extends javax.swing.JPanel {
     private javax.swing.JTextField searchTF;
     private javax.swing.JTextField searchTF1;
     // End of variables declaration//GEN-END:variables
+
+    void checkLogin() {
+        if (d.login.isLogin) {
+            logoutButton.setVisible(true);
+            addButton.setVisible(true);
+            editButton.setVisible(true);
+            removeButton.setVisible(true);
+        }
+    }
 }
